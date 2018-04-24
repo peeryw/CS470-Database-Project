@@ -2,15 +2,16 @@ package com.CS470Project.model;
 
 import org.sqlite.JDBC;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataSource {
 
 
     public static final String DB_NAME = "unit.db";
-    public static final String CONNECTION_STRING = "jdbc:sqlite:c:\\databases\\ " + DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:sqlite:C:\\Users\\willi\\Desktop" +
+            "\\JavaPrograms\\Military Readiness\\" + DB_NAME;
 
     //constants for table names and columns
     public static final String TABLE_ASSIGNMENT = "assignment";
@@ -72,7 +73,7 @@ public class DataSource {
         try{
             DriverManager.registerDriver(new JDBC());
             conn = DriverManager.getConnection(CONNECTION_STRING);
-            //System.out.println("Connected to DB");
+            System.out.println("Connected to DB");
             return true;
         }catch (SQLException e){
             System.out.println("Problem connecting to DB: " +e.getMessage());
@@ -91,4 +92,48 @@ public class DataSource {
     }
 
 
+    // this is a query test to make sure program is working
+    //query soldiers
+    public List<Soldier> querySoldiers() {
+        Statement statement = null;
+        ResultSet results = null;
+
+        try {
+            //DriverManager.registerDriver(new JDBC());
+            conn = DriverManager.getConnection(CONNECTION_STRING);
+            statement = conn.createStatement();
+            results = statement.executeQuery("SELECT * FROM soldier" );
+            List<Soldier> soldiers = new ArrayList<>();
+            while (results.next()){
+                Soldier soldier = new Soldier();
+                soldier.setM_id(results.getInt(COLUMN_M_ID));
+                soldier.setM_name(results.getString(COLUMN_M_NAME));
+                soldier.setDor(results.getString(COLUMN_DOR));
+                soldier.setComponent(results.getString(COLUMN_COMPONENT));
+                soldier.setRank(results.getString(COLUMN_RANK));
+                soldier.setPosition((results.getString(COLUMN_POSITION)));
+                soldiers.add(soldier);
+            }
+            return soldiers;
+        }catch (SQLException e){
+            System.out.println("Query failed " + e.getMessage());
+            return null;
+        }finally{
+            try{
+                if(results != null){
+                    results.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Error closing ResultsSet: " + e.getMessage());
+            }
+            try{
+                if(statement != null){
+                    statement.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Error closing Statement: " + e.getMessage());
+            }
+        }
+
+    }
 }
