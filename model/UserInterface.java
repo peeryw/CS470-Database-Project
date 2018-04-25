@@ -10,7 +10,6 @@ public class UserInterface {
     private ResultSet rs;
     private PreparedStatement pst;
 
-
     private final static String HEADER = "QUERY SELECTION SCREEN";
     private final static String CREATE = "Insert new record in a table";
     private final static String UPDATE = "Update record in a table";
@@ -47,34 +46,6 @@ public class UserInterface {
                DeleteRecord delete = new DeleteRecord();
             default:
                 System.out.println("Invalid Input");
-        }
-        System.out.println("Which table would you like to perform this operation on?\n" );
-        System.out.println("1. Soldier\n" + "2. Company\n" + "3. HQ Platoon\n" + "4. Platoon\n" + "5. Squad\n" +
-                "6. Assignment\n");
-        int selection2 = scanner.nextInt();
-        //System.out.println(" You selected " + selection2);
-
-        switch (selection2) {
-            case 1:
-                TABLE = "soldier";
-                break;
-            case 2:
-                TABLE = "company";
-                break;
-            case 3:
-                TABLE = "hq_platoon";
-                break;
-            case 4:
-                TABLE = "platoon";
-                break;
-            case 5:
-                TABLE = "squad";
-                break;
-            case 6:
-                TABLE = "assignment";
-                break;
-            default:
-                System.out.println("Invalid Input\n");
         }
 
         System.out.println("Would you like to perform another action in the DB or exit the program?");

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class  LogIn  {
+public class LogIn {
     // login to database, check that user exists and password is valid
     // if invalid, display message, if valid , check user roles and load db
     // with those roles for the user
@@ -17,7 +17,7 @@ public class  LogIn  {
     private PreparedStatement pst;
 
 
-    public LogIn(){
+    public LogIn() {
         connect();
         String sqlStatement = "SELECT * FROM user WHERE user_name = ? AND user_password = ?";
 
@@ -32,45 +32,37 @@ public class  LogIn  {
         String logInPassword = scanner.next();
         //
         try {
-            conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                    " Readiness\\unit.db");
+            conn = DriverManager.getConnection(DataSource.CONNECTION_STRING);
             pst = conn.prepareStatement(sqlStatement);
             pst.setString(1, logInID);
             pst.setString(2, logInPassword);
-            rs=pst.executeQuery();
+            rs = pst.executeQuery();
 
-            if (rs.next()){
+            if (rs.next()) {
                 System.out.println("Login complete\n.");
-                }
-            else{
+            } else {
                 System.out.println("Invalid User Name and Password.");
                 System.exit(0);
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());;
+            System.out.println(e.getMessage());
+            ;
         }
         // test input
         //System.out.println(String.format ("userid is %s, password is %s", logInID, logInPassword));
         //query DB for user id and password. handle errors
     }
-    private static void connect(){
+
+    private static void connect() {
         Connection conn = null;
-        try{
+        try {
             //db parameters
             DriverManager.registerDriver(new JDBC());
-            conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                    " Readiness\\unit.db");
+            conn = DriverManager.getConnection(DataSource.CONNECTION_STRING);
             //System.out.println("Connection to SQLite has been established");
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }/*finally {
-            try {
-                if (conn != null){
-                    conn.close();
-                }
-            }catch (SQLException ex){
-                System.out.println(ex.getMessage());
-            } */
         }
     }
+}

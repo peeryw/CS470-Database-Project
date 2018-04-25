@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class InsertIntoDB {
 
+    private static final String CONNECTION_STRING = DataSource.CONNECTION_STRING;
     private Connection conn;
     private PreparedStatement pst;
 
@@ -19,7 +20,7 @@ public class InsertIntoDB {
 
         switch(selection){
             case 1:
-                System.out.println("Please input the following informationr:\n" +
+                System.out.println("Please input the following information:\n" +
                         "Soldiers ID (integer only):");
                 int m_id = scanner.nextInt();
                 System.out.println("Soldiers Last Name ONLY:");
@@ -34,8 +35,7 @@ public class InsertIntoDB {
                 String position = scanner.next();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "INSERT INTO soldier VALUES ( ?,?,?,?,?,?)";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, m_id);
@@ -59,8 +59,7 @@ public class InsertIntoDB {
                 String company_name = scanner.next();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "INSERT INTO company VALUES ( ?,?)";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, company_id);
@@ -94,8 +93,7 @@ public class InsertIntoDB {
                 int supply_id = scanner.nextInt();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "INSERT INTO hq_platoon VALUES ( ?,?,?,?,?,?,?,?,?)";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, hq_platoon_id);
@@ -126,8 +124,7 @@ public class InsertIntoDB {
                 int rto_id1 = scanner.nextInt();
 
                 try {
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "INSERT INTO platoon VALUES ( ?,?,?,?)";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, platoon_id);
@@ -149,8 +146,7 @@ public class InsertIntoDB {
                 int squad_leader_id = scanner.nextInt();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "INSERT INTO squad VALUES ( ?,?)";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, squad_id);
@@ -174,8 +170,7 @@ public class InsertIntoDB {
                 String prev_assg = scanner.next();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "INSERT INTO hq_platoon VALUES ( ?,?,?,?)";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, m_id1);
@@ -193,7 +188,5 @@ public class InsertIntoDB {
                 System.out.println("Something went wrong insert into the DB system.");
                 System.exit(0);
         }
-
-
     }
 }

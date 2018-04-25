@@ -1,21 +1,21 @@
 package com.CS470Project.model;
 
+import java.awt.*;
 import java.sql.*;
 import java.util.Scanner;
 
 public class UpdateRecords {
 
-    private static final String DB_NAME = "unit.db";
-    public static final String CONNECTION_STRING = "jdbc:sqlite:C:\\Users\\willi\\Desktop" +
-            "\\JavaPrograms\\Military Readiness\\" + DB_NAME;
+
+    private static final String CONNECTION_STRING = DataSource.CONNECTION_STRING;
 
     private Connection conn;
-    private ResultSet rs;
     private PreparedStatement pst;
 
     private Scanner scanner = new Scanner(System.in);
 
     public UpdateRecords() {
+
 
         System.out.println("Please select which table to update:\n");
         System.out.println("1. Soldier\n" + "2.Company\n" + "3.HQ Platoon\n" + "4.Platoon\n" + "5.Squad\n"
@@ -60,8 +60,7 @@ public class UpdateRecords {
                 System.out.println("Please enter new name: ");
                 String m_name = scanner.next();
                 try {
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "Update soldier SET m_name = ? WHERE m_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setString(1, m_name);
@@ -77,8 +76,7 @@ public class UpdateRecords {
                 System.out.println("Please enter new DOR: ");
                 int dor = scanner.nextInt();
                 try {
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "Update soldier SET dor = ? WHERE m_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, dor);
@@ -94,8 +92,7 @@ public class UpdateRecords {
                 System.out.println("Please enter new component: ");
                 String component = scanner.next();
                 try {
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "Update soldier SET component = ? WHERE m_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setString(1, component);
@@ -111,8 +108,7 @@ public class UpdateRecords {
                 System.out.println("Please enter new Rank: ");
                 String rank = scanner.next();
                 try {
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "Update soldier SET rank = ? WHERE m_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setString(1, rank);
@@ -128,8 +124,7 @@ public class UpdateRecords {
                 System.out.println("Please enter new position: ");
                 String position = scanner.next();
                 try {
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "Update soldier SET position = ? WHERE m_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setString(1, position);
@@ -159,8 +154,7 @@ public class UpdateRecords {
                 System.out.println("Please enter Current Assignment: ");
                 String current = scanner.next();
                 try {
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "Update assignment SET current = ? WHERE m_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setString(1, current);
@@ -176,8 +170,7 @@ public class UpdateRecords {
                 System.out.println("Please enter Projected Assignment: ");
                 String projected = scanner.next();
                 try {
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "Update assignment SET projected = ? WHERE m_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setString(1, projected);
@@ -193,8 +186,7 @@ public class UpdateRecords {
                 System.out.println("Please enter Previous Assignment: ");
                 String prev_assg = scanner.next();
                 try {
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "Update assignment SET prev_assg = ? WHERE m_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setString(1, prev_assg);
@@ -218,8 +210,7 @@ public class UpdateRecords {
         System.out.println("Please enter New Squad Leader ID: ");
         int squad_leader_id = scanner.nextInt();
         try{
-            conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                    " Readiness\\unit.db");
+            conn = DriverManager.getConnection(CONNECTION_STRING);
             String insertStatement = "UPDATE squad SET squad_leader_id = ? WHERE squad_id = ?";
             pst = conn.prepareStatement(insertStatement);
             pst.setInt(1, squad_leader_id);
@@ -244,8 +235,7 @@ public class UpdateRecords {
                 System.out.println("Please enter the new Platoon Leader ID: ");
                 int p_leader_id = scanner.nextInt();
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "UPDATE platoon SET p_leader_id = ? WHERE platoon_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, p_leader_id);
@@ -260,8 +250,7 @@ public class UpdateRecords {
                 System.out.println("Please enter new Platoon Sergeant ID: ");
                 int p_sergeant_id = scanner.nextInt();
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "UPDATE platoon SET p_sergeant_id = ? WHERE platoon_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, p_sergeant_id);
@@ -290,8 +279,7 @@ public class UpdateRecords {
                 int co_id = scanner.nextInt();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "UPDATE hq_platoon SET co_id = ? WHERE hq_platoon_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, co_id);
@@ -307,8 +295,7 @@ public class UpdateRecords {
                 int xo_id = scanner.nextInt();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "UPDATE hq_platoon SET xo_id = ? WHERE hq_platoon_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, xo_id);
@@ -324,8 +311,7 @@ public class UpdateRecords {
                 int fsg_id = scanner.nextInt();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "UPDATE hq_platoon SET fsg_id = ? WHERE hq_platoon_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, fsg_id);
@@ -341,8 +327,7 @@ public class UpdateRecords {
                 int medic_id = scanner.nextInt();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "UPDATE hq_platoon SET medic_id = ? WHERE hq_platoon_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, medic_id);
@@ -358,8 +343,7 @@ public class UpdateRecords {
                 int rto_id = scanner.nextInt();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "UPDATE hq_platoon SET rto_id = ? WHERE hq_platoon_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, rto_id);
@@ -375,8 +359,7 @@ public class UpdateRecords {
                 int nbc_id = scanner.nextInt();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "UPDATE hq_platoon SET nbc_id = ? WHERE hq_platoon_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, nbc_id);
@@ -392,8 +375,7 @@ public class UpdateRecords {
                 int commo_id = scanner.nextInt();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "UPDATE hq_platoon SET commo_id = ? WHERE hq_platoon_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, commo_id);
@@ -408,8 +390,7 @@ public class UpdateRecords {
                 int supply_id = scanner.nextInt();
 
                 try{
-                    conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                            " Readiness\\unit.db");
+                    conn = DriverManager.getConnection(CONNECTION_STRING);
                     String insertStatement = "UPDATE hq_platoon SET supply_id = ? WHERE hq_platoon_id = ?";
                     pst = conn.prepareStatement(insertStatement);
                     pst.setInt(1, supply_id);
@@ -432,8 +413,7 @@ public class UpdateRecords {
         System.out.println("Please enter the new Company Name: ");
         String company_name = scanner.next();
         try{
-            conn = DriverManager.getConnection("jdbc:sqlite:c:\\Users\\willi\\Desktop\\JavaPrograms\\Military" +
-                    " Readiness\\unit.db");
+            conn = DriverManager.getConnection(CONNECTION_STRING);
             String insertStatement = "UPDATE company SET company_name = ? WHERE company_id = ?";
             pst = conn.prepareStatement(insertStatement);
             pst.setString(1, company_name);
