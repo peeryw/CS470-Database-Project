@@ -9,7 +9,7 @@ public class InsertIntoDB {
     private Connection conn;
     private PreparedStatement pst;
 
-    public InsertIntoDB(){
+    public InsertIntoDB(String user_id){
 
         Scanner scanner = new Scanner(System.in);
 
@@ -48,6 +48,17 @@ public class InsertIntoDB {
 
                 }catch (SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -68,6 +79,17 @@ public class InsertIntoDB {
 
                 }catch (SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -109,6 +131,17 @@ public class InsertIntoDB {
 
                 }catch (SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -135,6 +168,17 @@ public class InsertIntoDB {
 
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -155,6 +199,17 @@ public class InsertIntoDB {
 
                 }catch (SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -181,6 +236,17 @@ public class InsertIntoDB {
 
                 }catch (SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 

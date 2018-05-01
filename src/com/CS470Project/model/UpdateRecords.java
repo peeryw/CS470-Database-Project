@@ -14,7 +14,7 @@ public class UpdateRecords {
 
     private Scanner scanner = new Scanner(System.in);
 
-    public UpdateRecords() {
+    public UpdateRecords(String user_id) {
 
 
         System.out.println("Please select which table to update:\n");
@@ -70,6 +70,18 @@ public class UpdateRecords {
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
+                finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                }
                 break;
 
             case 2:
@@ -85,6 +97,17 @@ public class UpdateRecords {
 
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -101,6 +124,17 @@ public class UpdateRecords {
 
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -117,6 +151,17 @@ public class UpdateRecords {
 
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -133,6 +178,17 @@ public class UpdateRecords {
 
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
             default:
@@ -163,6 +219,17 @@ public class UpdateRecords {
 
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -179,6 +246,17 @@ public class UpdateRecords {
 
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -195,6 +273,17 @@ public class UpdateRecords {
 
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -219,6 +308,17 @@ public class UpdateRecords {
 
         }catch(SQLException e){
             System.out.println(e.getMessage());
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException e) {/* IGNORED */}
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {/* IGNORED */}
+            }
         }
     }
 
@@ -243,6 +343,17 @@ public class UpdateRecords {
                     pst.execute();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -258,6 +369,17 @@ public class UpdateRecords {
                     pst.execute();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -287,6 +409,17 @@ public class UpdateRecords {
                     pst.execute();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -303,6 +436,17 @@ public class UpdateRecords {
                     pst.execute();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -319,6 +463,17 @@ public class UpdateRecords {
                     pst.execute();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -335,6 +490,17 @@ public class UpdateRecords {
                     pst.execute();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -351,6 +517,17 @@ public class UpdateRecords {
                     pst.execute();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -367,6 +544,17 @@ public class UpdateRecords {
                     pst.execute();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -383,6 +571,17 @@ public class UpdateRecords {
                     pst.execute();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
             case 8:
@@ -398,6 +597,17 @@ public class UpdateRecords {
                     pst.execute();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
+                } finally {
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {/* IGNORED */}
+                    }
                 }
                 break;
 
@@ -422,6 +632,17 @@ public class UpdateRecords {
 
         }catch(SQLException e){
             System.out.println(e.getMessage());
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException e) {/* IGNORED */}
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {/* IGNORED */}
+            }
         }
     }
 }

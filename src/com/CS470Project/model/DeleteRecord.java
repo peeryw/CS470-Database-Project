@@ -18,7 +18,7 @@ public class DeleteRecord {
     private Connection conn;
     private PreparedStatement pst;
 
-    public DeleteRecord() {
+    public DeleteRecord(String user_id) {
 
         Scanner scanner = new Scanner(System.in);
         DataSource dataSource = new DataSource();
@@ -44,9 +44,20 @@ public class DeleteRecord {
 
                         } catch (SQLException e) {
                             System.out.println(e.getMessage());
+                        } finally {
+                            if (pst != null) {
+                                try {
+                                    pst.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
+                            if (conn != null) {
+                                try {
+                                    conn.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
                         }
                     case 2:
-                        UserInterface goBack = new UserInterface();
+                        UserInterface goBack = new UserInterface(user_id);
                 }
                 break;
 
@@ -66,9 +77,20 @@ public class DeleteRecord {
 
                         } catch (SQLException e) {
                             System.out.println(e.getMessage());
+                        } finally {
+                            if (pst != null) {
+                                try {
+                                    pst.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
+                            if (conn != null) {
+                                try {
+                                    conn.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
                         }
                     case 2:
-                        UserInterface goBack = new UserInterface();
+                        UserInterface goBack = new UserInterface(user_id);
                 }
                 break;
 
@@ -88,9 +110,20 @@ public class DeleteRecord {
 
                         } catch (SQLException e) {
                             System.out.println(e.getMessage());
+                        } finally {
+                            if (pst != null) {
+                                try {
+                                    pst.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
+                            if (conn != null) {
+                                try {
+                                    conn.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
                         }
                     case 2:
-                        UserInterface goBack = new UserInterface();
+                        UserInterface goBack = new UserInterface(user_id);
                 }
                 break;
 
@@ -110,9 +143,20 @@ public class DeleteRecord {
 
                         } catch (SQLException e) {
                             System.out.println(e.getMessage());
+                        } finally {
+                            if (pst != null) {
+                                try {
+                                    pst.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
+                            if (conn != null) {
+                                try {
+                                    conn.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
                         }
                     case 2:
-                        UserInterface goBack = new UserInterface();
+                        UserInterface goBack = new UserInterface(user_id);
                 }
                 break;
 
@@ -132,9 +176,20 @@ public class DeleteRecord {
 
                         }catch(SQLException e){
                             System.out.println(e.getMessage());
+                        } finally {
+                            if (pst != null) {
+                                try {
+                                    pst.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
+                            if (conn != null) {
+                                try {
+                                    conn.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
                         }
                     case 2:
-                        UserInterface goBack = new UserInterface();
+                        UserInterface goBack = new UserInterface(user_id);
                 }
                 break;
 
@@ -154,9 +209,20 @@ public class DeleteRecord {
 
                         }catch(SQLException e){
                             System.out.println(e.getMessage());
+                        } finally {
+                            if (pst != null) {
+                                try {
+                                    pst.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
+                            if (conn != null) {
+                                try {
+                                    conn.close();
+                                } catch (SQLException e) {/* IGNORED */}
+                            }
                         }
                     case 2:
-                        UserInterface goBack = new UserInterface();
+                        UserInterface goBack = new UserInterface(user_id);
                 }
                 break;
 
