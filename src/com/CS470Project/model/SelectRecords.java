@@ -42,7 +42,7 @@ public class SelectRecords {
     private static final String COLUMN_SQUAD_ID = "squad_id";
     private static final String COLUMN_SQUAD_LEADER_ID = "squad_leader_id";
 
-    public SelectRecords() {
+    public SelectRecords(String user_id) {
 
         Scanner scanner = new Scanner(System.in);
         DataSource datasource = new DataSource();
@@ -73,6 +73,22 @@ public class SelectRecords {
                             }
                         } catch (SQLException e) {
                             System.out.println(e.getMessage());
+                        } finally {
+                            if (rs != null) {
+                                try {
+                                    rs.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
+                            if (pst != null) {
+                                try {
+                                    pst.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
+                            if (conn != null) {
+                                try {
+                                    conn.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
                         }
                         break;
 
@@ -95,6 +111,22 @@ public class SelectRecords {
                     }
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
+                } finally {
+                    if (rs != null) {
+                        try {
+                            rs.close();
+                        } catch (SQLException e) { /* ignored */}
+                    }
+                    if (pst != null) {
+                        try {
+                            pst.close();
+                        } catch (SQLException e) { /* ignored */}
+                    }
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) { /* ignored */}
+                    }
                 }
                 break;
 
@@ -126,6 +158,22 @@ public class SelectRecords {
                             }
                         } catch (SQLException e) {
                             System.out.println(e.getMessage());
+                        } finally {
+                            if (rs != null) {
+                                try {
+                                    rs.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
+                            if (pst != null) {
+                                try {
+                                    pst.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
+                            if (conn != null) {
+                                try {
+                                    conn.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
                         }
                         break;
                 }
@@ -157,6 +205,22 @@ public class SelectRecords {
 
                         } catch (SQLException e) {
                             System.out.println(e.getMessage());
+                        } finally {
+                            if (rs != null) {
+                                try {
+                                    rs.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
+                            if (pst != null) {
+                                try {
+                                    pst.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
+                            if (conn != null) {
+                                try {
+                                    conn.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
                         }
                         break;
 
@@ -186,6 +250,22 @@ public class SelectRecords {
 
                         } catch (SQLException e) {
                             System.out.println(e.getMessage());
+                        } finally {
+                            if (rs != null) {
+                                try {
+                                    rs.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
+                            if (pst != null) {
+                                try {
+                                    pst.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
+                            if (conn != null) {
+                                try {
+                                    conn.close();
+                                } catch (SQLException e) { /* ignored */}
+                            }
                         }
                         break;
 
@@ -223,6 +303,22 @@ public class SelectRecords {
             }
         }catch(SQLException e){
             System.out.println(e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) { /* ignored */}
+            }
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException e) { /* ignored */}
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) { /* ignored */}
+            }
         }
 
     }

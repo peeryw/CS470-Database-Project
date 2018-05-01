@@ -8,8 +8,7 @@ public class DataSource {
 
 
     public static final String DB_NAME = "unit.db";
-    static final String CONNECTION_STRING = "jdbc:sqlite:C:\\Users\\willi\\Desktop" +
-            "\\JavaPrograms\\Military Readiness\\" + DB_NAME;
+    static final String CONNECTION_STRING = "jdbc:sqlite:" + DB_NAME;
     //public static final String CONNECTION_STRING = "jdbc:sqlite:c\\databases\\" + DB_NAME;
     private Connection conn;
 

@@ -15,7 +15,7 @@ public class LogIn {
     private Connection conn;
     private ResultSet rs;
     private PreparedStatement pst;
-
+    private String StoredID;
 
     public LogIn() {
         connect();
@@ -40,17 +40,38 @@ public class LogIn {
 
             if (rs.next()) {
                 System.out.println("Login complete\n.");
+                this.StoredID = rs.getString("user_id");
             } else {
                 System.out.println("Invalid User Name and Password.");
                 System.exit(0);
             }
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            ;
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) { /* ignored */}
+            }
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException e) { /* ignored */}
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) { /* ignored */}
+            }
         }
         // test input
         //System.out.println(String.format ("userid is %s, password is %s", logInID, logInPassword));
         //query DB for user id and password. handle errors
+    }
+
+    public String getStoredID() {
+        return StoredID;
     }
 
     private static void connect() {

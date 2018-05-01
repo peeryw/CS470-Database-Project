@@ -20,7 +20,7 @@ public class Main {
         //determine if user is authorized to log in to db
         LogIn logIn = new LogIn();
         //display selection table for user to perform queries
-        UserInterface session = new UserInterface();
+        UserInterface session = new UserInterface(logIn.getStoredID());
         //close all connections
         datasource.close();
     }
